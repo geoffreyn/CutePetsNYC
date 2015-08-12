@@ -1,22 +1,32 @@
 from bs4 import BeautifulSoup
 import requests, time, re
 
+ZIPCODE = '10021'
+DISTANCE_IN_MILES = '10'
+
 SCRAPE_IDS = True
-REGION_SPECIFIC_SITE_URL = 'http://www.petango.com/Forms/ShelterSearchResults.aspx?z=10021&d=10&sh=0&s=4&g=All&size=All&c=All&a=All&dec=All&p=False&v=False&adoptD=False&adoptC=False&adoptO=False&sid=0&zs=True&ht=False'
+SITE_URL = 'http://www.petango.com/Forms/ShelterSearchResults.aspx'
 NUM_REQUEST_ATTEMPTS = 5
 
+
 def fetch_page_listing():
+
+    params = {
+        'z': ZIPCODE,
+        'd': DISTANCE_IN_MILES
+    }
 
     # Get and parse page containing shelter list
     for attempt in range(NUM_REQUEST_ATTEMPTS):
         try:
-            res = requests.get(REGION_SPECIFIC_SITE_URL, timeout=5)
+            res = requests.get(SITE_URL, params, timeout=5)
             break
         except:
             time.sleep(5) # Wait 5 seconds before trying again
 
     page = BeautifulSoup(res.text,"html.parser")
     return page
+    
     
     
 if SCRAPE_IDS:
