@@ -1,6 +1,7 @@
-# CutePetsBmore [@CutePetsBmore](http://www.twitter.com/CutePetsBmore)
-This is a bot that retrieves listings from Baltimore City animal shelters and tweets photos and profile links to eligible pets.
+# CutePetsBmore [@CutePetsNYC](http://www.twitter.com/CutePetsNYC)
+This is a bot that retrieves listings from New York City animal shelters and tweets photos and profile links to eligible pets.
 
+Forked from [CutePetsBmore][https://github.com/Ryan-J-Smith/CutePetsBmore].
 Inspired by previous work by [CutePetsDenver](https://github.com/codeforamerica/CutePetsDenver) and [CutePetsAustin](https://github.com/open-austin/CutePetsAustin).
 
 The python script assumes that available animals are posted on the Petango service.
