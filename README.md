@@ -24,21 +24,15 @@ The python script assumes that available animals are posted on the Petango servi
 ### Schedule regular tweeting with crontab (Linux):
 
 1. From the command line, edit the crontab file: `crontab -e`
-1. Schedule the script to run every hour using a line similar to: `0 * * * * /usr/bin/python (path_to_tweet_pet.py) >> (path_to_log.log) 2>&1`
+1. Schedule the script to run every hour using a line similar to: `0 * * * * /usr/bin/python /path/to/tweet_pet.py >> /path/to/log.log) 2>&1`
 
 ## Notes:
 
 ### Extension to other shelters
 
-Presently data is retrieved for animals from two animal shelters (Baltimore Animal Rescue and Care Shelter and Baltimore Humane Society). However, modifying the script to retrieve animals from other shelters that use Petango is straightforward.
+The `shelters.py` scrapes the Petango page listing to get the list of shelters dependent on the `ZIPCODE` and `DISTANCE_IN_MILES` variables, both of which must be integers typecasted as strings.  Shelters may be manually determined and set as `SHELTER_IDS` if the bool `SCRAPE_IDS` is set to False.
 
-Use [Petango's shelter search](http://www.petango.com/Forms/Search.aspx) to identify a shelter of interest.  Choose to view animals from this shelter and you will notice a url of the form:
-
-**"www.petango.com/Forms/ShelterAnimals.aspx?s=1&sh=###"**
-
-The number contained in **"sh=###"** is the ID number of that shelter.  This number can be used to add or modify the dictionary contained in `shelters.py`.  
-
-Presently, the `tweet_pet.py` retrieves a list of animals from each each of the shelters in `shelters.py` then tweets an animal at random from this list. As a result, modifying this script to access animals from other shelters is as simple as modifying this dictionary.
+The `tweet_pet.py` retrieves a list of animals from each each of the shelters found by `shelters.py` then tweets an animal at random from this list. As a result, modifying this script to access animals from other shelters is as simple as modifying this dictionary.
 
 ### Avoidance of duplicate tweets
 
