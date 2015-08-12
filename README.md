@@ -1,4 +1,4 @@
-# CutePetsBmore [@CutePetsNYC](http://www.twitter.com/CutePetsNYC)
+# CutePetsNYC [@CutePetsNYC](http://www.twitter.com/CutePetsNYC)
 This is a bot that retrieves listings from New York City animal shelters and tweets photos and profile links to eligible pets.
 
 Forked from [CutePetsBmore][https://github.com/Ryan-J-Smith/CutePetsBmore].
